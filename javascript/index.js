@@ -1,3 +1,5 @@
+this.getRoute(1, 2)
+
 var mock = {
     home: [ 6.11149, 49.61062 ],
     work: [ 6.113, 49.610334 ]
@@ -143,4 +145,20 @@ function formatInputWithJavascript(){
         </div>
     <div>`
     elem.innerHTML = formated
+}
+
+function getRoute(pointA, pointB) {
+    pointA = "51.131,12.414";
+    pointB = "48.224,3.867";
+
+    fetch(
+        'https://graphhopper.com/api/1/route?point='+pointA+'&point='+pointB+'&profile=car&locale=de&calc_points=false&key=2db78206-4053-4ac6-9998-f7bbe034d879'
+    ).then(response => {
+        console.log("SUCCESS")
+        console.log(response)
+    })
+    .catch(error => {
+        console.log("ERROR")
+        console.log(error)
+    });
 }
