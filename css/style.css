@@ -26,3 +26,8 @@ main {
 #text_on_green{
     color: green;
 }
+h1{
+    text-align: center;
+    margin: 50px;
+}
+
