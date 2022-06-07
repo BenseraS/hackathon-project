@@ -1,3 +1,7 @@
+main {
+    margin: 100px;
+}
+
 .current-situation{
     border: 1em;
 }
@@ -5,16 +9,14 @@
 #map {
     width: 600px;
     height: 400px;
+    margin-top: 100px;
+    margin-left: -400px;
+    margin-right: 100px;
+    margin-bottom: 100px;
 }
 
-#text_on_black {
-    color: black;
+h1{
+    text-align: center;
+    margin: 50px;
 }
 
-#text_on_red {
-    color: red;
-    font-weight: bold;
-}
-#text_on_green{
-    color: green;
-}
