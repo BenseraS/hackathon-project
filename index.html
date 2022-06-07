@@ -9,6 +9,7 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://apiv4.geoportail.lu/apiv4loader.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -25,14 +26,57 @@
         </ul>
     </div>
 
-
-
     <h2>This is little!!</h2>
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
+
+
+    <!-- left part -->
+    <div>
+        <!-- top -->
+        <div>
+            <div>
+                <label for="work">Where do you work ?</label>
+                <input id="work" type="text" placeholder="Address"/>
+            </div>
+            <div>
+                <label for="home">Where do you live ?</label>
+                <input id="home" type="text" placeholder="Address"/>
+            </div>
+        </div>
+
+        <!-- map -->
+        <div id="map" style="width: 600px; height: 400px;"></div>
+
+        <!-- bottom -->
+        <div>
+            <div>
+                <label for="salary">Your salary</label>
+                <input id="salary" type="text" placeholder="2500"/>
+            </div>
+            <div>
+                <label for="rent">Rent price</label>
+                <input id="rent" type="text" placeholder="1500"/>
+            </div>
+            <div>
+                <label for="transport">Transport</label>
+                <select id="transport">
+                    <option value="car">Car</option>
+                    <option value="bus">Bus</option>
+                    <option value="train">Train</option>
+                </select>
+            </div>
+            <div>
+                <label for="gasoline">Gasoline price</label>
+                <input id="gasoline" type="number" min="0" placeholder="2.14"/>
+            </div>
+        </div>
+    </div>
+
+    <script src="javascript/index.js" type="text/javascript"></script>
 </body>
 
 </html>
