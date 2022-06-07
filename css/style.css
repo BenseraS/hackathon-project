@@ -1,0 +1,8 @@
+.current-situation{
+    border: 1em;
+}
+
+#map {
+    width: 600px;
+    height: 400px;
+}
