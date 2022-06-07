@@ -1,22 +1,89 @@
-var mock = {
-    home: [ 6.11149, 49.61062 ],
-    work: [ 6.113, 49.610334 ]
+var initialPosition = [76571.91760000025, 74418.60829954545];
+
+function addressLookup(queryString) {
+    if (queryString && queryString.length) {
+        return lux.geocode({
+            queryString,
+            num: null,
+            street: null,
+            zip: null,
+            locality: null
+        }, console.log);
+    }
+
+    return Promise.resolve(null);
 }
 
-/**
- * @return Promise<LonLat>
- */
-function addressLookup(address) {
-    var num = '50a';
-    var street = 'rue du cimetière';
-    var locality = 'heisdorf';
-    var zip = 'l-7313';
+function makeDelay(delay) {
+    return function(fn) {
+        var timeout = null;
 
-    return geocode({
-        num, street, zip, locality, queryString
-    }, function(position) {
-        console.log(position);
-    });
+        return function() {
+            var args = arguments;
+
+            if (timeout) {
+                clearTimeout(timeout);
+            }
+
+            timeout = setTimeout(function() {
+                var result = fn.apply(null, args);
+                timeout = null;
+                return result;
+            }, delay);
+        };
+    };
+};
+
+function addMarkers() {
+    if (!('luxMap' in window)) {
+        return;
+    }
+
+    var work = document.querySelector('#address-work').value;
+    var home = document.querySelector('#address-home').value;
+
+    return Promise.all([
+        addressLookup(work).then(
+            result => addMarker('work', result)
+        ),
+        addressLookup(home).then(
+            result => addMarker('home', result)
+        )
+    ]);
+}
+
+function addMarker(markerName, position) {
+    if (!('luxMap' in window)) {
+        return;
+    }
+
+    if (position) {
+        position = position.results;
+    }
+
+    if (position) {
+        position = position.shift();
+    }
+
+    if (position) {
+        position = position.geom;
+    }
+
+    if (position) {
+        position = position.coordinates;
+    }
+
+    if (position) {
+        var marker = {
+            position,
+            positioning: 'center-center',
+            iconURL: 'images/lion.png',
+            click: true,
+            html: '<h2>' + markerName +  '</h2>'
+        };
+
+        window.luxMap.showMarker(marker);
+    }
 }
 
 (function() {
@@ -25,63 +92,11 @@ function addressLookup(address) {
         target: 'map',
         bgLayer: 'basemap_2015_global',
         zoom: 18,
-        position: [75977, 75099]
+        position: initialPosition
     });
 
-    // markers on map
-    var markers = {};
-
-    var setPosition = function(markerName, position) {
-        if (markerName in markers) {
-            map.removeLayer(markers[markerName]);
-        }
-
-        if (position) {
-            var marker = {
-                position,
-                positionSrs: 4326,
-                positioning: 'center-center',
-                iconURL: 'images/lion.png',
-                click: true,
-                html: '<h2>' + markerName +  '</h2>'
-            };
-
-            markers[markerName] = marker;
-            map.showMarker(marker);
-        }
-    };
-
-    var timeout = null;
-
-    var makeDelay = function(delay) {
-        return function(fn) {
-            return function() {
-                if (timeout) {
-                    clearTimeout(timeout);
-                }
-
-                timeout = setTimeout(function() {
-                    var result = fn();
-                    timeout = null;
-                    return result;
-                }, delay);
-            };
-        };
-    };
-
-    var delay = makeDelay(500);
-
-    var inputListener = function(markerName, lonlat) {
-        return function(e) {
-            setPosition(markerName, lonlat);
-        };
-    };
-
-    var workInputListener = inputListener('work', mock.work);
-    var homeInputListener = inputListener('home', mock.home);
-
-    document.querySelector('#address-work').addEventListener('input', delay(workInputListener));
-    document.querySelector('#address-home').addEventListener('input', delay(homeInputListener));
+    // :(
+    window.luxMap = map;
 })();
 
 function calcTimeIsMoney(salary, travelTimeMin){
@@ -104,6 +119,11 @@ function calcGasolinePrice(price){
     return price * average
 }
 
+function calculate() {
+    addMarkers().then(
+        () => formatInputWithJavascript()
+    );
+}
 
 function formatInputWithJavascript(){
     var salary = 3000;
