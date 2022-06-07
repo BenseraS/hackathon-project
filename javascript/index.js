@@ -119,6 +119,7 @@ function formatInputWithJavascript(){
     var distance = 10;
 
     const money = calcTimeIsMoney(salary,travelTimeMin)
+    console.log(money)
     const gasolineExpenses = calcGasolinePrice(gasoline)
     var elem = document.getElementById('current_situation');
     elem.innerHTML = '';
@@ -148,6 +149,9 @@ function formatInputWithJavascript(){
                 <p>GASOLINE EXPENSES</p>
                 <p ${(gasolineExpenses>0) ? 'id="text_on_red"' : 'id="text_on_black"'}>${gasolineExpenses}</p>
         </div>
+        <div> 
+        <p>Time is Money EXPENSES</p>
+        <p ${(money.commutingMoneyConversion>10) ? 'id="text_on_red"' : 'id="text_on_black"'}>${money.commutingMoneyConversion} &euro;</p></div>
         <div>
             <h6>Distance from Veloh</h3>
                 <p>0 m</p>
