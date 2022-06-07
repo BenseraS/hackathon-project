@@ -1,3 +1,6 @@
+
+this.getRoute()
+
 var mock = {
     home: [ 6.11149, 49.61062 ],
     work: [ 6.113, 49.610334 ]
@@ -149,18 +152,22 @@ function getVelohDistance(){
     const API_KEY = '51e4c8697d96ebce32a43ec1f34625abb0598e0f'
 }
 
-function getRoute(pointA, pointB) {
+function getRoute(pointA, pointB, vehicle) {
     pointA = "51.131,12.414";
     pointB = "48.224,3.867";
+    vehicle = 'foot'
 
-    fetch(
-        'https://graphhopper.com/api/1/route?point='+pointA+'&point='+pointB+'&profile=car&locale=de&calc_points=false&key=2db78206-4053-4ac6-9998-f7bbe034d879'
-    ).then(response => {
-        console.log("SUCCESS")
-        console.log(response)
-    })
-        .catch(error => {
-            console.log("ERROR")
-            console.log(error)
-        });
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            // Typical action to be performed when the document is ready:
+           console.log(xhttp.responseText);
+        }
+    };
+    xhttp.open(
+        "GET",
+        'https://graphhopper.com/api/1/route?point='+pointA+'&point='+pointB+'&profile='+vehicle+'&locale=de&calc_points=false&key=2db78206-4053-4ac6-9998-f7bbe034d879',
+        true
+    );
+    xhttp.send();
 }
