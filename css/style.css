@@ -6,3 +6,15 @@
     width: 600px;
     height: 400px;
 }
+
+#text_on_black {
+    color: black;
+}
+
+#text_on_red {
+    color: red;
+    font-weight: bold;
+}
+#text_on_green{
+    color: green;
+}
