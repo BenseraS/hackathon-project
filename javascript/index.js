@@ -31,8 +31,8 @@ function formatInputWithJavascript(){
     var elem = document.getElementById('current_situation');
     elem.innerHTML = '';
     const formated = `<div>
-            <h6>Travel Time</h3>
-                <p>${travelTimeMin} minutes</p>
+        <h6>Travel Time</h3>
+        <p>${travelTimeMin} minutes</p>
         </div>
         <div>
             <h6>Distance</h3>
@@ -54,9 +54,8 @@ function formatInputWithJavascript(){
         </div>
         <div>
             <h6>Distance from Veloh</h3>
-                <p>GASOLINE EXPENSES</p>
                 <p>0 m</p>
         </div>
-        </div>`
+    <div>`
     elem.innerHTML = formated
 }
