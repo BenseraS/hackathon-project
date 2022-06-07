@@ -17,57 +17,90 @@
     <h1> Hackathon Project! </h1>
     <main>
         <div class="d-flex flex-row">
-
+            <form class="row g-3">
+                <div class="col-auto">
+                    <label for="Address" class="address-work">Where do you work?</label>
+                    <input type="text" class="form-control" id="address-work" placeholder="Address">
+                </div>
+                <div class="col-auto">
+                    <label for="Address" class="address-home">Where do you live?</label>
+                    <input type="text" class="form-control" id="address-home" placeholder="Address">
+                </div>
+            </form>
             <div class="p-2">MAP</div>
-            <div class="p-2"><section class="current-situation">
-                <div class="shadow-sm p-3 mb-5 bg-body rounded">
-                    <div>
-                        <h6>Travel Time</h3>
-                            <p>0 minutes</p>
+            <div class="p-2">
+                <section class="current-situation">
+                    <div class="shadow-sm p-3 mb-5 bg-body rounded">
+                        <div>
+                            <h6>Travel Time</h3>
+                                <p>0 minutes</p>
+                        </div>
+                        <div>
+                            <h6>Distance</h3>
+                                <p>0 km</p>
+                        </div>
+                        <div>
+                            <h6>Hours Spent (monthly)</h3>
+                                <p>0.5 hour</p>
+                        </div>
+                        <div>
+                            <h6>Time conversation in (euro)</h3>
+                                <p>YOUR PRICE HOUR</p>
+                                <p>0 &euro;</p>
+                        </div>
+                        <div>
+                            <h6>Total</h3>
+                                <p>GASOLINE EXPENSES</p>
+                                <p>0</p>
+                        </div>
+                        <div>
+                            <h6>Distance from Veloh</h3>
+                                <p>GASOLINE EXPENSES</p>
+                                <p>0 m</p>
+                        </div>
                     </div>
-                    <div>
-                        <h6>Distance</h3>
-                            <p>0 km</p>
+                </section>
+            </div>
+            <div class="p-2">
+                <section class="proposal">
+                    <div class="shadow-sm p-1 mb-5 bg-body rounded">
+                        <h6>Walk more</h3>
                     </div>
-                    <div>
-                        <h6>Hours Spent (monthly)</h3>
-                            <p>0.5 hour</p>
-                    </div>
-                    <div>
-                        <h6>Time conversation in (euro)</h3>
-                            <p>YOUR PRICE HOUR</p>
-                            <p>0 &euro;</p>
-                    </div>
-                    <div>
-                        <h6>Total</h3>
-                            <p>GASOLINE EXPENSES</p>
-                            <p>0</p>
-                    </div>
-                    <div>
-                        <h6>Distance from Veloh</h3>
-                            <p>GASOLINE EXPENSES</p>
-                            <p>0 m</p>
-                    </div>
-                </div>
-            </section></div>
-            <div class="p-2">  <section class="proposal">
-                <div class="shadow-sm p-1 mb-5 bg-body rounded">
-                    <h6>Walk more</h3>
-                </div>
-            </section></div>
-          </div>
-          <div class="d-flex flex-row-reverse">
+                </section>
+            </div>
+        </div>
+        <div class="d-flex flex-row-reverse">
             <div class="p-2">Flex item 1</div>
             <div class="p-2">Flex item 2</div>
             <div class="p-2">Flex item 3</div>
-          </div>
-        
-
-      
+        </div>
 
 
-        <h2>This is header 2!!</h2>
 
+
+        <form class="row g-3 mb-5">
+            <div class="col-auto">
+                <label for="Salary" class="salary">Your Salary</label>
+                <input type="text" class="form-control" id="salary" placeholder="2500">
+            </div>
+            <div class="col-auto">
+                <label for="Rent-Price" class="rent-price">Rent Price</label>
+                <input type="text" class="form-control" id="rent-price" placeholder="600">
+            </div>
+        </form>
+        <form class="row g-3">
+            <div class="col-auto">
+                <label for="Transport" class="salary">Transport</label>
+                <input type="text" class="form-control" id="salary" placeholder="2500">
+            </div>
+            <div class="col-auto">
+                <label for="Gasoline-Price" class="gasoline-price">Gasoline Price</label>
+                <input type="text" class="form-control" id="gasoline-price" placeholder="600">
+            </div>
+        </form>
+        <form action="">
+            <button type="button" class="btn btn-outline-primary">Primary</button>
+        </form>
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
