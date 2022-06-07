@@ -122,6 +122,10 @@ function formatInputWithJavascript(){
     const gasolineExpenses = calcGasolinePrice(gasoline)
     var elem = document.getElementById('current_situation');
     elem.innerHTML = '';
+
+    var prop = document.getElementById('proposal');
+    prop.innerHTML = '<h6>Take the public transport</h3>';
+
     const formated = `<div>
         <h6>Travel Time</h3>
         <p ${(travelTimeMin>20) ? 'id="text_on_red"' : 'id="text_on_black"'} >${travelTimeMin} minutes</p>
